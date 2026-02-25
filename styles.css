@@ -1,0 +1,250 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #05080d;
+  color: #00ffff;
+  font-family: "Courier New", monospace;
+  overflow: hidden;
+}
+
+.space-background,
+.grid-overlay,
+#three-container {
+  position: fixed;
+  inset: 0;
+}
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #0a1a2a, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loading-text {
+  margin-top: 16px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 255, 255, 0.1);
+  padding: 8px 16px;
+  border: 1px solid #0ff;
+  display: none;
+}
+
+.interface-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+}
+
+.data-panel {
+  position: absolute;
+  width: 260px;
+  background: rgba(0, 20, 30, 0.6);
+  border: 1px solid #0ff;
+  padding: 12px;
+}
+
+.data-panel.left {
+  top: 20px;
+  left: 20px;
+}
+
+.data-panel-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.data-bar {
+  height: 6px;
+  background: rgba(0, 255, 255, 0.1);
+  margin-bottom: 10px;
+}
+
+.data-bar-fill {
+  height: 100%;
+  width: 75%;
+  background: #0ff;
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.terminal-panel {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 420px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #0ff;
+}
+
+.terminal-header {
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #0ff;
+}
+
+.terminal-content {
+  padding: 10px;
+  font-size: 12px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.spectrum-analyzer {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 320px;
+  border: 1px solid #0ff;
+  background: rgba(0, 10, 20, 0.7);
+}
+
+.spectrum-header {
+  padding: 6px 10px;
+  border-bottom: 1px solid #0ff;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Controls now inside spectrum panel */
+#controls {
+  position: static; /* no longer fixed */
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  pointer-events: auto;
+  background: transparent; /* inherit panel background */
+  padding: 0;
+}
+
+#controls input,
+#controls button {
+  margin: 5px 5px 0 0;
+  font-size: 12px;
+  border-radius: 4px;
+  border: 1px solid #0ff;
+  background: rgba(0, 0, 0, 0.5);
+  color: #0ff;
+  cursor: pointer;
+}
+
+#controls button:hover {
+  background: #0ff;
+  color: #000;
+}
+#three {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.spectrum-analyzer {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 360px;
+  height: 480px;
+  background: rgba(0, 10, 20, 0.7);
+  border: 1px solid #0ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* 3D bars canvas inside the panel */
+#three {
+  width: 100%;
+  height: 150px;
+  background: transparent;
+  margin-bottom: 10px;
+}
+
+/* Controls container */
+.controls-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* File + playback buttons */
+.audio-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+/* EQ sliders layout */
+.eq-controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.eq-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: #0ff;
+}
+
+.eq-slider input[type="range"] {
+  writing-mode: bt-lr; /* vertical slider */
+  -webkit-appearance: slider-vertical;
+  width: 8px;
+  height: 100px;
+  margin-top: 5px;
+}
+
+/* Reset EQ button */
+#resetBtn {
+  padding: 4px 8px;
+  background: #000;
+  border: 1px solid #0ff;
+  color: #0ff;
+  cursor: pointer;
+}
+#resetBtn:hover {
+  background: #0ff;
+  color: #000;
+}
