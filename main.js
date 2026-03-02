@@ -50,8 +50,8 @@ scene.add(dirLight);
 function hideLoader() {
   gsap.to(overlay, {
     opacity: 0,
-    duration: 1.5,
-    delay: 1,
+    duration: 2.5,
+    delay: 5,
     pointerEvents: "none",
   });
 }
@@ -96,7 +96,7 @@ function typeTerminal(lines) {
         i++;
         setTimeout(nextLine, 250);
       }
-    }, 35);
+    }, 100);
   }
   nextLine();
 }
@@ -105,7 +105,7 @@ gsap.to(headerItems, {
   opacity: 0.6,
   repeat: -1,
   yoyo: true,
-  duration: 1.5,
+  duration: 0.5,
   stagger: 0.2,
 });
 
@@ -173,7 +173,6 @@ resetBtn.onclick = () => {
 // AUDIO CONTROL
 // ==========================
 function createSource(start = 0, autoPlay = true) {
-  // ✅ Only stop if the source was started and is playing
   if (source && isPlaying) {
     source.stop();
   }
@@ -310,7 +309,7 @@ function animate() {
   analyser.getByteFrequencyData(dataArray);
 
   bars.forEach((bar, i) => {
-    const h = Math.max(dataArray[i] / 20, 0.4);
+    const h = Math.max(dataArray[i] / 20, 1.4);
     bar.scale.y = h;
     bar.position.y = h / 2;
   });
@@ -345,3 +344,4 @@ window.addEventListener("load", () => {
     "CLICK RESET TO RETURN EQ TO NEUTRAL",
   ]);
 });
+
